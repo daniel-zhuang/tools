@@ -2,6 +2,7 @@
 # encoding utf-8
 # read open.163.com course page video download links and write to file
 # run with python3 cli, depends thirdparty lib: BeautifulSoup4 https://pypi.python.org/pypi/beautifulsoup4/4.3.2
+# input:　update line 22 value; output: console log, a new file in pwd
 
 import socket
 import urllib.request
@@ -50,12 +51,12 @@ if __name__=="__main__":
       '''
       count = 0;
       pwd = os.path.dirname(os.path.abspath(__file__))
-      # title soup.title.string
+   
       p = re.compile(r'\w+\.*\w*$')
-
       result = re.search(p, url).group(0)
 
       file = codecs.open(pwd + '/' + result + '.txt', 'a', 'utf-8')
+      # title soup.title.string
       file.write(soup.title.string + '\n')
 
       for tag in soup.find_all('table', id='list2'):
