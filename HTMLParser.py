@@ -51,13 +51,13 @@ if __name__=="__main__":
       '''
       count = 0;
       pwd = os.path.dirname(os.path.abspath(__file__))
-   
+
       p = re.compile(r'\w+\.*\w*$')
       result = re.search(p, url).group(0)
 
       file = codecs.open(pwd + '/' + result + '.txt', 'a', 'utf-8')
       # title soup.title.string
-      file.write(soup.title.string + '\n')
+      file.write('# ' + soup.title.string + '\n')
 
       for tag in soup.find_all('table', id='list2'):
 
